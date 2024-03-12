@@ -1,11 +1,14 @@
-1) make analysis object
+0) install
+   pip install aggPy
+
+2) make analysis object
 	json file has the parameters for the desired analysis
 	x = Analysis('file.json', 'hbond')
 
-2) Run analysis - x variable now has more attributes
+3) Run analysis - x variable now has more attributes
 	x.hCoordination()
 
-3) Workup - Possible key values = 'Distance', 'Angle', 'Coordinations' ,'Aggregate Size', 'Aggregate resids', 'Network', 'Node Degree'
+4) Workup - Possible key values = 'Distance', 'Angle', 'Coordinations' ,'Aggregate Size', 'Aggregate resids', 'Network', 'Node Degree'
 	
 	x.aggregate('key')	- Totals values of a key property - return: list of total key values 
 				  	
@@ -15,5 +18,4 @@
 
 	x.timeCorr()		- Time Correlation - returns: mol_ct, sys_ct - mol_ct=per molecule Ct , sys_ct=total Ct	
 	    mol_ct, sys_ct = x.timeCorr()
-
-
+   
