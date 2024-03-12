@@ -1,0 +1,34 @@
+
+  "init": [
+    {
+        "data_file":            "../postNPT.data",
+        "trj_file":             "../modFF.dcd",
+        "md_form":              "LAMMPS",
+        "dims":                 "",
+        "mol_deliminator":      "resid",
+        "run_length":           "n",
+        "start_frame":          0,
+        "end_frame":            50,
+        "frame_dt":             1
+        }
+  ],
+  "hbond": [
+    {
+        "HbondParm":            "0, 2.13, 2.61" ,
+        "hydrogen_type":        "type 4",
+        "donors_type":          "type 2",
+        "acceptors_type":       "type 3",
+        "merge_a_d":            "y",
+        "XYZ":                  "True, out",
+        "mol_bool":             "y",
+        "dist_bool":            "y",
+        "angle_bool":           "y",
+        "output_filename":      "testing"
+        }
+  ],
+  "freq": [
+    {
+        "bond":                 1
+        }
+    ]
+}
