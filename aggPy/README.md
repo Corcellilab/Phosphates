@@ -12,8 +12,9 @@
 ## **Run analysis**
 
 	x.hCoordination()
- 	_x variable has desired analysis attributes_
-	*Possible key values = 'Distance', 'Angle', 'Coordinations' ,'Aggregate Size', 'Aggregate resids', 'Network', 'Node Degree'
+ 
+ 	x variable has desired analysis attributes
+	Possible key values = 'Distance', 'Angle', 'Coordinations' ,'Aggregate Size', 'Aggregate resids', 'Network', 'Node Degree'
 
 ## **Workup**
    ### Totals values of a key property - return: list of total key values
