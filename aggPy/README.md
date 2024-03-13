@@ -7,7 +7,8 @@
 ## **Make Analysis object**
 
 	x = Analysis('file.json', 'hbond')
- 	*json file has the parameters for the desired analysis
+ 	
+  	json file has the parameters for the desired analysis
 
 ## **Run analysis**
 
