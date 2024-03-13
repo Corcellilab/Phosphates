@@ -1,16 +1,19 @@
 # **Install**
+
    	pip install aggPy
 
 # **Make Analysis object**
-	_json file has the parameters for the desired analysis_
+
+	json file has the parameters for the desired analysis
 	x = Analysis('file.json', 'hbond')
 
 # **Run analysis**
-   	_x variable now has more attributes_
+
 	x.hCoordination()
+ 	x variable has desired analysis attributes
+	Possible key values = 'Distance', 'Angle', 'Coordinations' ,'Aggregate Size', 'Aggregate resids', 'Network', 'Node Degree'
 
 # **Workup** -
-   	_Possible key values = 'Distance', 'Angle', 'Coordinations' ,'Aggregate Size', 'Aggregate resids', 'Network', 'Node Degree'_
 	
 	i = Analysis.aggregate(x, 'key')	- Totals values of a key property - return: list of total key values 
 				  	
