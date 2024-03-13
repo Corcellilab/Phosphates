@@ -12,7 +12,7 @@
 ## **Run analysis**
 
 	x.hCoordination()
- 	*x variable has desired analysis attributes
+ 	_x variable has desired analysis attributes_
 	*Possible key values = 'Distance', 'Angle', 'Coordinations' ,'Aggregate Size', 'Aggregate resids', 'Network', 'Node Degree'
 
 ## **Workup**
