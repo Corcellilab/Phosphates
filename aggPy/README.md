@@ -1,4 +1,4 @@
-# ReadMe.md
+# Use of aggPy
 
 ## **Install**
 
