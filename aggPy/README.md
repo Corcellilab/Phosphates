@@ -1,5 +1,5 @@
 0) install
-   pip install aggPy
+   	pip install aggPy
 
 2) make analysis object
 	json file has the parameters for the desired analysis
