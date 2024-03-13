@@ -7,15 +7,15 @@
 ## **Make Analysis object**
 
 	x = Analysis('file.json', 'hbond')
- 	#json file has the parameters for the desired analysis
+ 	*json file has the parameters for the desired analysis
 
 ## **Run analysis**
 
 	x.hCoordination()
- 	#x variable has desired analysis attributes
-	#Possible key values = 'Distance', 'Angle', 'Coordinations' ,'Aggregate Size', 'Aggregate resids', 'Network', 'Node Degree'
+ 	*x variable has desired analysis attributes
+	*Possible key values = 'Distance', 'Angle', 'Coordinations' ,'Aggregate Size', 'Aggregate resids', 'Network', 'Node Degree'
 
-## Workup
+## **Workup**
    ### Totals values of a key property - return: list of total key values
 	i = Analysis.aggregate(x, 'key')	 
 
