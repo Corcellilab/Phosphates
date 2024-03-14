@@ -8,7 +8,7 @@ def dij(adj_list, visited, node, result, key):
         if neighbor not in visited:
             dij(adj_list, visited, neighbor, result, key)
 
-def connectivity(data,nodes):
+def connectivity(data, nodes):
     data = np.tril(data)
     z = np.nonzero(data)
     agg_tuple = [tuple((row,col)) for row, col in zip(z[1],z[0])]
