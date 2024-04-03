@@ -6,7 +6,8 @@
 
 ## **Make Analysis object**
 
-	x = Analysis('file.json', 'hbond')
+	import aggPy
+ 	x = Analysis('file.json', 'hbond')
  	
   	json file has the parameters for the desired analysis
 
