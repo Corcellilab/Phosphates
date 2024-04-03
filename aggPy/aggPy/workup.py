@@ -26,7 +26,7 @@ def aggregate(self, variable):
 
 #########
 def average(self, variable):
-    agg = self.aggregate(variable)
+    agg = self.aggregate(self, variable)
     T = type(getattr(self.result0, variable))
     if T == dict:
         for k,v in agg.items():
@@ -35,6 +35,7 @@ def average(self, variable):
         agg = sum(agg) / self.length
 
     setattr(self, f'{variable}Avg', agg)
+    return agg
 
 #########
 def std_dev(self, variable, bin_width=1):
@@ -55,6 +56,7 @@ def std_dev(self, variable, bin_width=1):
         trj_stdev[k] = np.std(bin_values)
 
     setattr(self, f'{variable}Stdev', trj_stdev)
+    return trj_stdev
 
 ##########
 
