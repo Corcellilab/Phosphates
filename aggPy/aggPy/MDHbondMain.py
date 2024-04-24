@@ -20,7 +20,7 @@ def hbond(topology=[],donors=[],hydrogens=[],acceptors=[],HbondParm=[],box=[],pr
             acceptor = acceptors[i[1]]
             distance = dist[i[0]][i[1]]
             bonded = hydrogen.bonds[0]
-            h_bond_atom = bonded[0]
+            h_bond_atom = bonded.partner(hydrogen)
             angle = (mda.lib.distances.calc_angles(h_bond_atom.position,hydrogen.position,acceptor.position,
                 box=box))         #radians
             if angle > HbondParm[2]:
