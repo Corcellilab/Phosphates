@@ -15,7 +15,7 @@ def hbond(topology=[],donors=[],hydrogens=[],acceptors=[],HbondParm=[],box=[],pr
 
     output = {'Distance':[],'Angle':[],'Network':[]}
     for i in index:
-        if getattr(hydrogens[i[0]], mol_delim) != getattr(acceptors[i[1]], mol_delim):
+        if hydrogens[i[0]].resid != acceptors[i[1]].resid:
             hydrogen = hydrogens[i[0]]
             acceptor = acceptors[i[1]]
             distance = dist[i[0]][i[1]]
@@ -29,7 +29,7 @@ def hbond(topology=[],donors=[],hydrogens=[],acceptors=[],HbondParm=[],box=[],pr
                 output['Network'].append((hydrogen.resid,acceptor.resid))
 
             if XYZ[0] == True:
-                rez = [getattr(h_bond_atom, mol_delim), getattr(acceptor, mol_delim)]
+                rez = [h_bond_atom.resid, acceptor.resid]
                 for i in range(0,len(rez)):
                     rez_h = rez[i]
                     num_atoms += len(topology[rez_h])
