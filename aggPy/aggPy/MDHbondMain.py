@@ -2,7 +2,7 @@ import MDAnalysis as mda
 import numpy as np
 import aggPy.network2   
 
-def hbond(topology=[],donors=[],hydrogens=[],acceptors=[],HbondParm=[],box=[],pre_allo=[],mol_delim='resid',XYZ=[False]):
+def hbond(topology=[],donors=[],hydrogens=[],acceptors=[],HbondParm=[],box=[],pre_allo=[],XYZ=[False]):
     if XYZ[0] == True:
         xyz_string = ''
         atom_map = XYZ[1]
