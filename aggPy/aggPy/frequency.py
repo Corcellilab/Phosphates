@@ -30,7 +30,6 @@ class Analysis:
             HbondParm = self.HbondParm,
             box = self.box,
             pre_allo = self.pre_allo,
-            mol_delim = self.mol_deliminator,
             XYZ = [eval(self.XYZ[0]), self.atom_map, f'{self.XYZ[1].strip()}.xyz']
         )
         
