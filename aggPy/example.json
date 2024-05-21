@@ -5,7 +5,6 @@
         "trj_file":             "../modFF.dcd",
         "md_form":              "LAMMPS",
         "dims":                 "",
-        "mol_deliminator":      "resid",
         "run_length":           "n",
         "start_frame":          0,
         "end_frame":            50,
