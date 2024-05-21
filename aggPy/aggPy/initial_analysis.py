@@ -45,7 +45,7 @@ def init_analysis(self):
     print(f'{len(acceptors)} acceptors type {set(acceptors.types)} found')
     print(f'{len(donors)} donors type {set(donors.types)} found')
 
-    topology = u.atoms.groupby(f'{self.mol_deliminator}s') 
+    topology = u.atoms.groupby('resids') 
 
     self.universe = u
     self.box = box
