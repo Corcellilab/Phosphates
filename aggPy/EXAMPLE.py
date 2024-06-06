@@ -1,20 +1,22 @@
 import matplotlib.pyplot as plt
+import sys
+
 from aggPy import *
 
-hbonds = Analysis('MDin.json', 'hbond')
+hbonds = Analysis('../MDin.json', 'hbond')
 hbonds.hCoordination()
+
+x, y = Analysis.timeCorr(hbonds)
+
+plt.plot(x, y)
+plt.show()
 
 i = Analysis.aggregate(hbonds, 'Distance')
 plt.hist(i, bins=100)
 plt.show()
 
 j = Analysis.std_dev(hbonds, 'Coordinations')
-print(j)
+print(f'Std Dev Coords: {j}')
 
-x = Analysis.average(hbonds, 'Coordinations')
-print(x)
-
-mol_ct, sys_ct = hbonds.timeCorr(hbonds)
-plt.plot(list(sys_ct.keys()), list(sys_ct.values()))
-plt.show()
-
+k = Analysis.average(hbonds, 'Coordinations')
+print(f'Avg Coords: {k}')
