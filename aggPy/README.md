@@ -28,5 +28,7 @@
    ### std_dev from binning avg - returns same dtype as 'key' dtype
 	k = Analysis.std_dev(hbonds, 'key', bin_width=1)	
 
-   ### Time Correlation - returns: x = number of timesteps until hbond between molecules no longer exists, y = Normalized counts
-	x, y = Analysis.timeCorr(hbonds) 	 	
+   ### Time Correlation - returns: x, y
+	x, y = Analysis.timeCorr(hbonds) 
+ 		x = number of timesteps until hbond between molecules no longer exists 
+   		y = Normalized counts
