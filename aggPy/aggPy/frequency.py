@@ -62,8 +62,8 @@ class Analysis:
         return aggPy.workup.std_dev(data, variable, bin_width)
     
     @staticmethod
-    def timeCorr(data, min_dt=1, max_dt=10, skip_dt=1, t_prop=1, num_mols=1):
-        return aggPy.timeCorr(data, min_dt, max_dt, skip_dt, t_prop, num_mols)
+    def timeCorr(data, min_dt=1, max_dt=20, skip_dt=1, t_prop=1):
+        return aggPy.timeCorr(data, min_dt, max_dt, skip_dt, t_prop)
 
     def graphing(data):
         return None
