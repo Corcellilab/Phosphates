@@ -1,22 +1,28 @@
-import matplotlib.pyplot as plt
-import sys
+  hbonds = Analysis('./MDin.json', 'hbond')
+  hbonds.hCoordination()
 
-from aggPy import *
+  n = Analysis.aggregate(hbonds, 'Cluster Coeff')
 
-hbonds = Analysis('../MDin.json', 'hbond')
-hbonds.hCoordination()
+  e = Analysis.aggregate(hbonds, 'Entropy')
 
-x, y = Analysis.timeCorr(hbonds)
+  i = Analysis.aggregate(hbonds, 'Distance')
+  plt.hist(i, bins=100)
+  plt.show()
 
-plt.plot(x, y)
-plt.show()
+  a = Analysis.aggregate(hbonds, 'Eigs')
+  plt.hist(a, bins=100)
+  plt.show()
 
-i = Analysis.aggregate(hbonds, 'Distance')
-plt.hist(i, bins=100)
-plt.show()
+  b = Analysis.average(hbonds, 'Aggregate Size')
+  #print(f'Std Dev Length: {b}')
 
-j = Analysis.std_dev(hbonds, 'Coordinations')
-print(f'Std Dev Coords: {j}')
+  k = Analysis.average(hbonds, 'Aggregate Size')
+  #print(f'Avg Length: {k}')
 
-k = Analysis.average(hbonds, 'Coordinations')
-print(f'Avg Coords: {k}')
+  j = Analysis.std_dev(hbonds, 'Coordinations')
+  #print(f'Std Dev Coords: {j}')
+
+  x = Analysis.average(hbonds, 'Coordinations')
+  plt.scatter(x.keys(), x.values())
+  plt.show()
+  #print(f'Avg Coords: {x}')
