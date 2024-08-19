@@ -1,3 +1,6 @@
+  import matplotlib.pyplot as plt
+  from aggPy import *
+
   hbonds = Analysis('./MDin.json', 'hbond')
   hbonds.hCoordination()
 
