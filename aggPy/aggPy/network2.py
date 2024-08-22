@@ -130,14 +130,27 @@ def network2(atom_ej, universe_adj):
     #Get aggregate labels and sizes
     cluster_label, cluster_size = cluster_size_label(path)
 
+    #Get aggregate labels and sizes
     output = {}
-    output['Coordinations'] = Coordinations
-    output['Aggregate Size'] = cluster_size
-    output['Aggregate resids'] = cluster_label
-    output['Cluster Coeff'] = cluster_coeff(graphDict)
-    output['Path'] = avg_min_path(path)
-    output['Eigs'] = np.linalg.eigvalsh(resid_adj)
-    output['Entropy'] = entropyCalc(Coordinations)
+    if path[0] == None:
+        cluster_label = 0
+        cluster_size = 0
+        output['Coordinations'] = Coordinations
+        output['Aggregate Size'] = [0]
+        output['Aggregate resids'] = [0]
+        output['Cluster Coeff'] = 0.0
+        output['Path'] = [0]
+        output['Eigs'] = np.linalg.eigvalsh(resid_adj)
+        output['Entropy'] = 0.0
+    else:
+        cluster_label, cluster_size = cluster_size_label(path)
+        output['Coordinations'] = Coordinations
+        output['Aggregate Size'] = cluster_size
+        output['Aggregate resids'] = cluster_label
+        output['Cluster Coeff'] = cluster_coeff(graphDict)
+        output['Path'] = avg_min_path(path)
+        output['Eigs'] = np.linalg.eigvalsh(resid_adj)
+        output['Entropy'] = entropyCalc(Coordinations)
 
     return output
 
