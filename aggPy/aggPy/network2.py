@@ -32,6 +32,7 @@ def cluster_coeff(graphDict):
     for node, edges in graphDict.items():
         edge = 0
         degree = len(edges.keys())
+        if degree == 1: continue
         neighborhood = list(edges.keys())
         for neighbor in neighborhood:
             neigh_edges = set(list(graphDict[neighbor].keys()))
