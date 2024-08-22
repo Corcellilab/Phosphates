@@ -54,12 +54,6 @@ def entropyCalc(Coordinations):
 
 ###
 def Dijkstra(graph, nodes, start):
-  """
-   https://stackoverflow.com/questions/22897209/dijkstras-algorithm-in-python
-    modified return case so only nodes within the aggregate are returned
-    rather than all nodes in the snapshot
-  """
-  
   unvisited = {node: None for node in nodes}
   visited = {}
   currentDistance = 0
