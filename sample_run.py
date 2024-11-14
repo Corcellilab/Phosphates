@@ -1,6 +1,12 @@
 import aggPy
 import aggPy.workup
 
+"""
+
+  This is a sample script that can be run simply with
+  $python sample_run.py
+
+"""
 
 json_file = 'MDin.json'
 analysis = 'spectra'
@@ -32,4 +38,5 @@ aggPy.time_corr_Ct.binary(network_lst[0], adj_mat,
         min_dt=0, max_dt=100, skip_dt=1,
         t_prop=1, dt=1e-15)
 
+#Run command line interactable plotting tool for produced csvs
 aggPy.plot_csv()
