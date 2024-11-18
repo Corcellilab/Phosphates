@@ -20,6 +20,7 @@
     {
         "network_1":            {
                                  "distance_cutoff": [0, 2.42],
+                                 "angle_cutoff": [120, 180],
                                  "group1": "ag_1",
                                  "group2": "ag_3"
                                 }
