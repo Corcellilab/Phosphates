@@ -200,5 +200,8 @@ class CalcEjs(AnalysisBase):
                                     orient='index',
                                     columns=list(self.results.graphs[0].keys()),
                                    )
+        df_geom = pd.DataFrame.from_dict(self.results.geometric,)
         df.to_csv(f'{self.name}.csv', index=False)
+        df_geom.to_csv(f'{self.name}_geom.csv', index=False)
+
 
