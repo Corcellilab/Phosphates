@@ -1,16 +1,16 @@
 {
   "init": [
     {
-    	"data_file":            "//groups/scorcell/nvascone/phosphates/Full/200/ions.preProd.data",
-        "trj_file":             "//groups/scorcell/nvascone/phosphates/Full/200/ions.prodNVE100.dcd",
+    	"data_file":              "myData.data",
+        "trj_file":             "myTraj.dcd",
         "md_form":              "LAMMPS",
         "dims":                 "",
         "make_resids":          "n",
         "run_length":           "n",
-        "start_frame":          100,
+        "start_frame":          0,
         "end_frame":            1000,
         "frame_dt":             100,
-        "verbose":              true,
+        "verbose":              false,
         "ag_1":                 "type 4",
         "ag_2":                 "type 1",
         "ag_3":                 "type 3 or type 2",
