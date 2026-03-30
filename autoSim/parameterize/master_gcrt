@@ -1,0 +1,15 @@
+%chk=sym.chk
+%NProcs=4
+%mem=16GB
+#HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt
+# iop(6/50=1)
+
+remark
+
+charge   spin
+coords
+
+sym.gesp
+
+sym.gesp
+

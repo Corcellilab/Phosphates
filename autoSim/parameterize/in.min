@@ -1,0 +1,30 @@
+ variable a index minimized
+ log log.$a
+
+#########################
+
+ include "./system.in.init"
+
+ read_data "system.data"
+
+ include "./system.in.settings"
+
+##################
+
+ include "./system.in.groups"
+
+ delete_atoms overlap 1.0 solvent solute mol yes
+ delete_atoms overlap 1.0 solvent solvent mol yes
+
+##### Min ########
+ min_style cg   #Conjugate gradient minimization
+ minimize 1.0e-5 1.0e-7 2500 10000
+ min_style sd   #Steepest gradient minimization
+ minimize 1.0e-5 1.0e-7 4500 10000
+ min_style cg
+ minimize 1.0e-5 1.0e-7 4000 10000
+
+ reset_atoms id sort yes
+
+ write_data $a.data
+

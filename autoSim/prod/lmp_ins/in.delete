@@ -1,0 +1,23 @@
+ variable a index delete
+ log log.$a
+
+#########################
+
+ include "../system.in.init"
+
+ read_data "../equib/nve/final.preNVE.data"
+
+ include "../system.in.settings"
+
+##################
+
+ include "../equib/system.in.groups" 
+
+ group wat type 1
+ group wat include molecule
+ group solute subtract all wat
+
+ delete_atoms group wat
+
+ write_data solute.data
+
