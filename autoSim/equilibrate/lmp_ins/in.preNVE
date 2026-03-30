@@ -1,0 +1,54 @@
+
+variable a index preNVE
+log log.$a
+
+#########################
+
+include "../../system.in.init"
+
+read_data "../final.eqNVT.data"
+
+include "../../system.in.settings"
+
+########## Grouping #################
+
+include "../system.in.groups"
+
+############ Variables #################
+variable rnseed index 69
+variable seed equal ceil(random(1,10000000,${rnseed})/100)
+variable step equal step
+variable run equal 1000
+variable density equal density
+variable temp equal temp
+variable press equal press
+variable etotal equal etotal
+variable volume equal vol
+variable printfreq equal 1000
+variable simTemp equal 5
+variable simPres equal 1.0
+
+########## Minimize #################
+thermo_style custom elapsed vol temp press ke pe etotal enthalpy evdwl ecoul epair ebond eangle edihed eimp emol elong etail density
+
+neighbor 1.0 bin
+neigh_modify delay 0 every 1 check yes page 1000000 one 20000
+timestep 1.0
+
+#fix pl all plumed plumedfile plu.txt outfile log.plu
+
+fix fShake all shake 0.0001 20 0 b 1 a 1
+
+############ Equib ####################
+timestep 1.0
+
+fix myPrint all print ${printfreq} "Step Temp Pressure Density Volume = $(step) $(temp) $(press) $(density) $(vol)" file $a.txt screen no
+
+fix myNVE all nve
+fix 1 all langevin ${simTemp} ${simTemp} 100 ${seed} tally yes zero no
+
+restart 250000 restart.$a.nve
+run ${run}
+
+write_data final.$a.data
+

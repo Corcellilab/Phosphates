@@ -1,0 +1,10 @@
+"""
+
+ autoSim python package
+
+"""
+
+__version__ = "0.1.0"
+__author__ = "Noah Vasconez"
+
+

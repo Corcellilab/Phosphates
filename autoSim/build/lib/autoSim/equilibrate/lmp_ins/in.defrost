@@ -1,0 +1,58 @@
+
+variable a index defrost
+log log.$a
+
+#########################
+
+include "../../system.in.init"
+
+read_data "../minimization/minimized.data"
+
+include "../../system.in.settings"
+
+
+############ Variables #################
+variable rnseed index 2
+variable seed equal ceil(random(1,10000000,${rnseed})/100)
+variable step equal step
+variable run equal 400000
+variable density equal density
+variable temp equal temp
+variable press equal press
+variable etotal equal etotal
+variable volume equal vol
+variable printfreq index 1000
+variable simTemp index 300
+variable simPres index 1.0
+
+########## Grouping #################
+
+include "../system.in.groups"
+
+#####################################
+thermo_style custom elapsed vol temp press ke pe etotal enthalpy evdwl ecoul epair ebond eangle edihed eimp emol elong etail density
+
+neighbor 1.0 bin
+neigh_modify delay 0 every 1 check yes page 1000000 one 20000
+
+velocity all create 5 ${seed} dist gaussian units box
+
+############ Equib ####################
+
+#fix pl all plumed plumedfile plu.txt outfile log.plu
+
+fix fShake all shake 0.0001 20 0 b 1 a 1
+
+timestep 1.0
+
+fix styling all print ${printfreq} "Step Temp Pressure Density Volume = $(step) $(temp) $(press) $(density) $(vol)" file $a.txt screen no
+
+#fix defrost all npt temp 1 ${simTemp} 200 iso ${simPres} ${simPres} 2000 drag 1.0
+
+fix defrost all npt temp 5 ${simTemp} 200 iso 5 ${simPres} 2000 drag 1.0
+
+restart 100000 restart.$a.npt
+run ${run}
+
+write_data final.$a.data
+

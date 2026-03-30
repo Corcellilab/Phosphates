@@ -1,0 +1,54 @@
+# h1 h2
+# \ /
+#  o
+spce {
+
+# atomID molID atomType charge coordX coordY coordZ
+write("Data Atoms") {
+$atom:O $mol:w @atom:O -0.8476 0.0000000 0.000000 0.00000
+$atom:h1 $mol:w @atom:H 0.4238 0.8164904 0.5773590 0.00000
+$atom:h2 $mol:w @atom:H 0.4238 -0.8164904 0.5773590 0.00000
+}
+
+# Variables beginning with $ or @ will be replaced by numbers LAMMPS will
+# eventually read. Each of the three "atoms" will be assigned unique
+# atomIDs (denoted here by "$atom:o", "$atom:h1", "$atom:h2"), even if
+# they belong to different molecules. However, the atom types
+# (denoted "@atom:O", "@atom:H") are shared for atoms in all molecules.
+# All 3 atoms share same molID number (represeted here by "$mol:w")
+# however that number is different for different water molecules.
+
+write_once("Data Masses") {
+@atom:O 15.9994
+@atom:H 1.008
+}
+
+write("Data Bonds") {
+# bondID bondType atomID1 atomID2
+$bond:oh1 @bond:OH $atom:O $atom:h1
+$bond:oh2 @bond:OH $atom:O $atom:h2
+}
+
+write("Data Angles") {
+# angleID angleType atomID1 atomID2 atomID3
+$angle:hoh @angle:HOH $atom:h1 $atom:O $atom:h2
+
+}
+
+write_once("In Settings") {
+# -- Non-bonded (Pair) interactions --
+# atomType1 atomType2 parameter-list (epsilon, sigma)
+pair_coeff @atom:O @atom:O lj/charmm/coul/long 0.1553 3.166
+pair_coeff @atom:H @atom:H lj/charmm/coul/long 0.0000 2.058
+
+# -- Bonded interactions --
+
+# bondType parameter list (k_bond, r0)
+bond_coeff @bond:OH harmonic 1000 1.0
+
+# angleType parameter-list (k_theta, theta0)
+angle_coeff @angle:HOH harmonic 1000 109.47
+
+}
+
+} # SPCE

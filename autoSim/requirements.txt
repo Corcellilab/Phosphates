@@ -1,0 +1,5 @@
+MDAnalysis==2.10.0
+moltemplate==2.22.3
+networkx==3.4.2
+pandas==2.3.0
+rdkit==2025.9.3
